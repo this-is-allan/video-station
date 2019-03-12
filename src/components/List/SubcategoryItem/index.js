@@ -33,7 +33,10 @@ class SubcategoryItem extends Component {
     } = this.props;
 
     return (
-      <section style={{ listStyle: "none" }}>
+      <section
+        style={{ listStyle: "none" }}
+        onClick={() => toggleSubcategory(subcategory.name)}
+      >
         <ToggleButton>{subcategory.name}</ToggleButton>
         <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
           <SubcategoryItemContent>
