@@ -6,7 +6,7 @@ import { Creators as SubcategoriesActions } from "../../store/ducks/subcategorie
 import { ListContainer } from "./styles";
 import SubcategoryItem from "./SubcategoryItem";
 
-const List = ({
+const Accordion = ({
   subcategories,
   loading,
   toggleSubcategory,
@@ -15,6 +15,7 @@ const List = ({
   <ListContainer>
     <h1>list</h1>
     {activeSubcategory}
+
     {subcategories.map((subcategory, i) => (
       <SubcategoryItem key={i} subcategory={subcategory} />
     ))}
@@ -33,4 +34,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(List);
+)(Accordion);

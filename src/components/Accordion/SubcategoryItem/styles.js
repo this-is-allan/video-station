@@ -9,6 +9,7 @@ export const ToggleButton = styled.button`
   justify-content: space-between;
   width: 100%;
   background: rgb(141, 112, 255);
+  cursor: pointer;
   padding: 20px;
   border-width: 0px;
   border-style: initial;
@@ -18,7 +19,8 @@ export const ToggleButton = styled.button`
 
 export const SubcategoryItemContent = styled.ul`
   color: rgb(68, 68, 68);
-  display: block;
+  /* display: block; */
+  display: ${props => (props.active ? "block" : "none")};
   padding: 10px 0px;
   list-style: none;
   li:first-child {

@@ -39,7 +39,9 @@ class SubcategoryItem extends Component {
       >
         <ToggleButton>{subcategory.name}</ToggleButton>
         <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
-          <SubcategoryItemContent>
+          <SubcategoryItemContent
+            active={subcategory.name === activeSubcategory}
+          >
             {this.state.videos.map((video, i) => (
               <li key={i} onClick={() => toggleVideo(video)}>
                 {video.name}

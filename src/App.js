@@ -5,7 +5,7 @@ import { Creators as SubcategoriesActions } from "./store/ducks/subcategories";
 
 import Wrapper from "./components/UI/Wrapper";
 import Video from "./components/Video";
-import List from "./components/List";
+import Accordion from "./components/Accordion";
 
 class App extends React.Component {
   componentDidMount = async () => {
@@ -18,7 +18,7 @@ class App extends React.Component {
       <Wrapper>
         {this.props.activeSubcategory}
         <Video />
-        <List />
+        <Accordion />
       </Wrapper>
     );
   }
