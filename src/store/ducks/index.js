@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 
-// import todos from "./todos";
+import subcategories from "./subcategories";
 
 export default combineReducers({
-  // todos
+  subcategories
 });

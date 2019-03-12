@@ -1,10 +1,36 @@
 import React from "react";
-import { ListContainer } from "./styles";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as SubcategoriesActions } from "../../store/ducks/subcategories";
 
-const List = () => (
+import { ListContainer } from "./styles";
+import SubcategoryItem from "./SubcategoryItem";
+
+const List = ({
+  subcategories,
+  loading,
+  toggleSubcategory,
+  activeSubcategory
+}) => (
   <ListContainer>
     <h1>list</h1>
+    {activeSubcategory}
+    {subcategories.map((subcategory, i) => (
+      <SubcategoryItem key={i} subcategory={subcategory} />
+    ))}
   </ListContainer>
 );
 
-export default List;
+const mapStateToProps = ({ subcategories }) => ({
+  subcategories: subcategories.data,
+  loading: subcategories.loading,
+  activeSubcategory: subcategories.activeSubcategory
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(SubcategoriesActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(List);
