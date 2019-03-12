@@ -4,17 +4,21 @@ import { bindActionCreators } from "redux";
 import { Creators as SubcategoriesActions } from "../../../store/ducks/subcategories";
 import axios from "axios";
 
+import { ToggleButton, SubcategoryItemContent } from "./styles";
+
 class SubcategoryItem extends Component {
   state = {
     videos: []
   };
 
   componentDidMount() {
+    const { subcategory } = this.props;
+    const subcategory_name = subcategory.uri.split("/").slice(-1)[0];
     const token = "e0e6e2967dde85c9b0c604989ae1af47";
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     axios
       .get(
-        `https://api.vimeo.com/categories/music/subcategories/musicdocumentary/videos?per_page=4`
+        `https://api.vimeo.com/categories/documentary/subcategories/${subcategory_name}/videos?per_page=4`
       )
       .then(res => this.setState({ videos: res.data.data }));
   }
@@ -28,23 +32,19 @@ class SubcategoryItem extends Component {
       activeVideo
     } = this.props;
 
-    // console.log("console", this.props.activeVideo);
-
     return (
-      <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
-        {subcategory.name}{" "}
-        {/* <button onClick={() => toggleSubcategory(subcategory.name)}>
-          assistir
-        </button> */}
-        <ul>
-          {this.state.videos.map((video, i) => (
-            <li key={i}>
-              {video.name}{" "}
-              <button onClick={() => toggleVideo(video)}>Assistir</button>
-            </li>
-          ))}
-        </ul>
-      </li>
+      <section style={{ listStyle: "none" }}>
+        <ToggleButton>{subcategory.name}</ToggleButton>
+        <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
+          <SubcategoryItemContent>
+            {this.state.videos.map((video, i) => (
+              <li key={i} onClick={() => toggleVideo(video)}>
+                {video.name}
+              </li>
+            ))}
+          </SubcategoryItemContent>
+        </li>
+      </section>
     );
   }
 }

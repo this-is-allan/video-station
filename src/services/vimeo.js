@@ -7,6 +7,6 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
 export default {
   subcategories: {
-    getAll: () => axios.get(`/categories/music/`).then(res => res.data)
+    getAll: () => axios.get(`/categories/documentary/`).then(res => res.data)
   }
 };
