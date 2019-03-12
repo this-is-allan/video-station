@@ -17,9 +17,8 @@ export const ToggleButton = styled.button`
   border-image: initial;
 `;
 
-export const SubcategoryItemContent = styled.ul`
+export const Collapse = styled.ul`
   color: rgb(68, 68, 68);
-  /* display: block; */
   display: ${props => (props.active ? "block" : "none")};
   padding: 10px 0px;
   list-style: none;

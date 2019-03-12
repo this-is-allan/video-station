@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { Creators as SubcategoriesActions } from "../../../store/ducks/subcategories";
 import axios from "axios";
 
-import { ToggleButton, SubcategoryItemContent } from "./styles";
+import { ToggleButton, Collapse } from "./styles";
 
 class SubcategoryItem extends Component {
   state = {
@@ -39,15 +39,13 @@ class SubcategoryItem extends Component {
       >
         <ToggleButton>{subcategory.name}</ToggleButton>
         <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
-          <SubcategoryItemContent
-            active={subcategory.name === activeSubcategory}
-          >
+          <Collapse active={subcategory.name === activeSubcategory}>
             {this.state.videos.map((video, i) => (
               <li key={i} onClick={() => toggleVideo(video)}>
                 {video.name}
               </li>
             ))}
-          </SubcategoryItemContent>
+          </Collapse>
         </li>
       </section>
     );
