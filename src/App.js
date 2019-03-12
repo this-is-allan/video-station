@@ -16,7 +16,6 @@ class App extends React.Component {
   render() {
     return (
       <Wrapper>
-        {this.props.activeSubcategory}
         <Video />
         <Accordion />
       </Wrapper>
