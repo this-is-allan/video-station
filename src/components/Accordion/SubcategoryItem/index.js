@@ -29,7 +29,8 @@ class SubcategoryItem extends Component {
       activeSubcategory,
       toggleSubcategory,
       toggleVideo,
-      activeVideo
+      activeVideo,
+      index
     } = this.props;
 
     return (
@@ -37,7 +38,9 @@ class SubcategoryItem extends Component {
         style={{ listStyle: "none" }}
         onClick={() => toggleSubcategory(subcategory.name)}
       >
-        <ToggleButton>{subcategory.name}</ToggleButton>
+        <ToggleButton>
+          {index + 1}. {subcategory.name}
+        </ToggleButton>
         <li style={{ color: subcategory.name === activeSubcategory && "red" }}>
           <Collapse active={subcategory.name === activeSubcategory}>
             {this.state.videos.map((video, i) => (

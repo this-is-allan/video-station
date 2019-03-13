@@ -14,7 +14,7 @@ const Accordion = ({
 }) => (
   <ListContainer>
     {subcategories.map((subcategory, i) => (
-      <SubcategoryItem key={i} subcategory={subcategory} />
+      <SubcategoryItem key={i} index={i} subcategory={subcategory} />
     ))}
   </ListContainer>
 );

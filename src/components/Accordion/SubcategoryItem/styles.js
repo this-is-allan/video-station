@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const ToggleButton = styled.button`
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
   color: rgb(255, 255, 255);
   display: flex;
   -webkit-box-align: center;
@@ -18,6 +21,7 @@ export const ToggleButton = styled.button`
 `;
 
 export const Collapse = styled.ul`
+  /* font-family: "Circular Std Book"; */
   color: rgb(68, 68, 68);
   display: ${props => (props.active ? "block" : "none")};
   padding: 10px 0px;
@@ -26,6 +30,8 @@ export const Collapse = styled.ul`
     margin: 0px !important;
   }
   li {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
