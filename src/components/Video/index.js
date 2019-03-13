@@ -11,6 +11,7 @@ const Video = ({ activeVideo }) => {
   // }
   return (
     <VideoContainer>
+      <Vimeo video="https://vimeo.com/313281415" autoplay />
       {uri && <Vimeo video={uri} width={640} height={480} autoplay />}
     </VideoContainer>
   );
