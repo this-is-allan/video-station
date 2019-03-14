@@ -11,9 +11,9 @@ export const VideoContainer = styled.div`
     padding: 0 40px;
     /* position: absolute; */
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    /* left: 0; */
+    width: 65vw;
+    /* height: 100vh; */
     html {
       body {
         background: red !important;
@@ -24,7 +24,7 @@ export const VideoContainer = styled.div`
 `;
 
 export const VideoHeader = styled.h1`
-  padding: 10px 40px;
+  padding: 20px 40px;
   /* margin-bottom: 20px; */
   /* height: 0; */
   font-family: "Source Sans Pro", sans-serif;

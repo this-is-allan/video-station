@@ -15,7 +15,7 @@ const Video = ({ activeVideo }) => {
     <VideoContainer>
       <VideoHeader>{activeVideo.name}</VideoHeader>
       {/* <Vimeo video="https://vimeo.com/313281415" /> */}
-      {link && <Vimeo video={link} width={640} height={480} autoplay />}
+      {link && <Vimeo video={link} width={640} height={480} />}
     </VideoContainer>
   );
 };
