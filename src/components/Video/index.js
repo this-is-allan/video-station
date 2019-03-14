@@ -1,18 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import { VideoContainer } from "./styles";
 import Vimeo from "@u-wave/react-vimeo";
 
+import { VideoContainer, VideoHeader } from "./styles";
+
 const Video = ({ activeVideo }) => {
-  // if (activeVideo.uri) {
-  const uri =
-    activeVideo.uri &&
-    activeVideo.uri.substr(activeVideo.uri.lastIndexOf("/") + 1);
-  // }
+  // const uri =
+  //   activeVideo.uri &&
+  //   activeVideo.uri.substr(activeVideo.uri.lastIndexOf("/") + 1);
+
+  const { link } = activeVideo;
+
   return (
     <VideoContainer>
-      <Vimeo video="https://vimeo.com/313281415" autoplay />
-      {uri && <Vimeo video={uri} width={640} height={480} autoplay />}
+      <VideoHeader>{activeVideo.name}</VideoHeader>
+      {/* <Vimeo video="https://vimeo.com/313281415" /> */}
+      {link && <Vimeo video={link} width={640} height={480} autoplay />}
     </VideoContainer>
   );
 };

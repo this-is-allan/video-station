@@ -12,7 +12,7 @@ class SubcategoryItem extends Component {
   };
 
   componentDidMount() {
-    const { subcategory } = this.props;
+    const { subcategory, toggleVideo, index } = this.props;
     const subcategory_name = subcategory.uri.split("/").slice(-1)[0];
     const token = "e0e6e2967dde85c9b0c604989ae1af47";
     axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
@@ -20,7 +20,11 @@ class SubcategoryItem extends Component {
       .get(
         `https://api.vimeo.com/categories/documentary/subcategories/${subcategory_name}/videos?per_page=4`
       )
-      .then(res => this.setState({ videos: res.data.data }));
+      // .then(res => this.setState({ videos: res.data.data }));
+      .then(res => {
+        this.setState({ videos: res.data.data });
+        index === 1 && toggleVideo(res.data.data[0]);
+      });
   }
 
   render() {

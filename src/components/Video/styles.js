@@ -8,10 +8,26 @@ export const VideoContainer = styled.div`
   overflow: hidden;
   background: rgb(32, 30, 41);
   iframe {
-    position: absolute;
+    padding: 0 40px;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
+    html {
+      body {
+        background: red !important;
+        display: block !important;
+      }
+    }
   }
+`;
+
+export const VideoHeader = styled.h1`
+  padding: 10px 40px;
+  /* margin-bottom: 20px; */
+  /* height: 0; */
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
 `;
