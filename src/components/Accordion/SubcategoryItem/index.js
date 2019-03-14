@@ -23,7 +23,7 @@ class SubcategoryItem extends Component {
       // .then(res => this.setState({ videos: res.data.data }));
       .then(res => {
         this.setState({ videos: res.data.data });
-        index === 1 && toggleVideo(res.data.data[0]);
+        index === 0 && toggleVideo(res.data.data[0]);
       });
   }
 
