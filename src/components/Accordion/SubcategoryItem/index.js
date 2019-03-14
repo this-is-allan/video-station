@@ -20,7 +20,6 @@ class SubcategoryItem extends Component {
       .get(
         `https://api.vimeo.com/categories/documentary/subcategories/${subcategory_name}/videos?per_page=4`
       )
-      // .then(res => this.setState({ videos: res.data.data }));
       .then(res => {
         this.setState({ videos: res.data.data });
         index === 0 && toggleVideo(res.data.data[0]);

@@ -21,7 +21,6 @@ export const ToggleButton = styled.button`
 `;
 
 export const Collapse = styled.ul`
-  /* font-family: "Circular Std Book"; */
   color: rgb(68, 68, 68);
   display: ${props => (props.active ? "block" : "none")};
   padding: 10px 0px;
