@@ -12,11 +12,11 @@ const Accordion = ({
   toggleSubcategory,
   activeSubcategory
 }) => (
-  <ListContainer>
+  <React.Fragment>
     {subcategories.map((subcategory, i) => (
       <SubcategoryItem key={i} index={i} subcategory={subcategory} />
     ))}
-  </ListContainer>
+  </React.Fragment>
 );
 
 const mapStateToProps = ({ subcategories }) => ({
