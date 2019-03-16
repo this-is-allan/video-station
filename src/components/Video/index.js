@@ -7,12 +7,13 @@ import { VideoContainer, VideoHeader, VideoDescription } from "./styles";
 
 class Video extends Component {
   state = {
-    videoLoaded: false
+    videoLoaded: false,
+    videoError: false
   };
 
   render() {
     const { activeVideo } = this.props;
-    const { videoLoaded } = this.state;
+    const { videoLoaded, videoError } = this.state;
     const { link } = activeVideo;
 
     return (
@@ -23,16 +24,28 @@ class Video extends Component {
           color="#8D6FF7"
           loading={!videoLoaded}
         />
-        <VideoHeader>{activeVideo.name}</VideoHeader>
+
+        {!videoError ? (
+          <VideoHeader>{activeVideo.name}</VideoHeader>
+        ) : (
+          <React.Fragment>
+            <VideoHeader>Error: Video can not load</VideoHeader>
+          </React.Fragment>
+        )}
+
         {link && (
           <Vimeo
             video={link}
             width={640}
             height={480}
-            onLoaded={() => this.setState({ videoLoaded: true })}
+            onReady={() => this.setState({ videoLoaded: true })}
+            onError={() => this.setState({ videoError: true })}
+            onLoaded={() => this.setState({ videoError: false })}
           />
         )}
-        <VideoDescription>{activeVideo.description}</VideoDescription>
+        <VideoDescription>
+          {!videoError && activeVideo.description}
+        </VideoDescription>
       </VideoContainer>
     );
   }
