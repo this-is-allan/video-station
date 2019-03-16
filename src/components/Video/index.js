@@ -11,13 +11,18 @@ class Video extends Component {
   };
 
   render() {
-    const { activeVideo, loading } = this.props;
+    const { activeVideo } = this.props;
     const { videoLoaded } = this.state;
     const { link } = activeVideo;
 
     return (
       <VideoContainer>
-        <BarLoader width="100%" color={"#123abc"} loading={!videoLoaded} />
+        <BarLoader
+          widthUnit="%"
+          width={100}
+          color="#8D6FF7"
+          loading={!videoLoaded}
+        />
         <VideoHeader>{activeVideo.name}</VideoHeader>
         {link && (
           <Vimeo
@@ -32,19 +37,6 @@ class Video extends Component {
     );
   }
 }
-
-// const Video = ({ activeVideo, loading }) => {
-//   const { link } = activeVideo;
-
-//   return (
-//     <VideoContainer>
-//       <BarLoader width="100%" color={"#123abc"} loading={loading} />
-//       <VideoHeader>{activeVideo.name}</VideoHeader>
-//       {link && <Vimeo video={link} width={640} height={480} />}
-//       <VideoDescription>{activeVideo.description}</VideoDescription>
-//     </VideoContainer>
-//   );
-// };
 
 const mapStateToProps = ({ subcategories }) => ({
   activeVideo: subcategories.activeVideo,

@@ -1,4 +1,4 @@
-import { all, takeEvery, takeLatest, put, call } from "redux-saga/effects";
+import { all, takeEvery, put, call } from "redux-saga/effects";
 import {
   Creators as SubcategoriesActions,
   Types
@@ -16,7 +16,5 @@ function* fetchSubcategories() {
 }
 
 export default function* root() {
-  yield all([
-    yield takeLatest(Types.REQUEST_SUBCATEGORIES, fetchSubcategories)
-  ]);
+  yield all([yield takeEvery(Types.REQUEST_SUBCATEGORIES, fetchSubcategories)]);
 }

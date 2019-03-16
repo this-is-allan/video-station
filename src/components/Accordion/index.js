@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Creators as SubcategoriesActions } from "../../store/ducks/subcategories";
 
-import { ListContainer } from "./styles";
 import SubcategoryItem from "./SubcategoryItem";
 
 const Accordion = ({
@@ -15,7 +14,7 @@ const Accordion = ({
   activeSubcategory
 }) => (
   <React.Fragment>
-    <BarLoader width="100%" color={"#123abc"} loading={loading} />
+    <BarLoader widthUnit="%" width={100} color="#8D6FF7" loading={loading} />
     {subcategories.map((subcategory, i) => (
       <SubcategoryItem key={i} index={i} subcategory={subcategory} />
     ))}

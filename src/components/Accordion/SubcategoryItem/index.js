@@ -32,7 +32,6 @@ class SubcategoryItem extends Component {
       activeSubcategory,
       toggleSubcategory,
       toggleVideo,
-      activeVideo,
       index
     } = this.props;
 
@@ -61,8 +60,7 @@ class SubcategoryItem extends Component {
 const mapStateToProps = ({ subcategories }) => ({
   subcategories: subcategories.data,
   loading: subcategories.loading,
-  activeSubcategory: subcategories.activeSubcategory,
-  activeVideo: subcategories.activeVideo
+  activeSubcategory: subcategories.activeSubcategory
 });
 
 const mapDispatchToProps = dispatch =>
